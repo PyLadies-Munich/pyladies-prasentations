@@ -6,23 +6,43 @@
 :css: css/workshop1.css
 
 ----
+
 :id: title-slide
+
+Beginner's workshop
+===================
 
 Welcome to
 
-.. img:: img/pyladies-munich.png
+.. image:: images/pyladies-munich.png
+    :height: 400px
 
 
+.. note::
+
+    * Test Note
 
 ----
+
 :id: introduction-slide
 
+Introduction
+============
+
 
 ----
+
 :id: install-python
 
+Install Python
+==============
+
+.. code:: bash
+
+    aptitude install python-3.4
 
 ----
+
 :id: hopper-video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BttvTL_O31g" frameborder="0" allowfullscreen></iframe>
