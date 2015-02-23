@@ -7,7 +7,7 @@ xmlns="http://www.w3.org/1999/xhtml">
 <xsl:import href="resource:templates/reST.xsl" />
 
 <xsl:template match="step" name="step">
-    <div class="step">
+    <div class="step slide lmu-slide">
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates />
     </div>
@@ -78,7 +78,7 @@ xmlns="http://www.w3.org/1999/xhtml">
           </xsl:attribute>
         </xsl:if>
         <xsl:for-each select="step">
-          <div class="step">
+          <div class="step slide lmu-slide">
             <xsl:copy-of select="@*"/>
             <xsl:apply-templates />
           </div>
