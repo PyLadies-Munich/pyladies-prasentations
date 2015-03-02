@@ -3,7 +3,7 @@
 :event: PyLadies Munich - Beginner's Workshop
 :keywords: Python, PyLadies, Workshop
 :data-transition-duration: 1500
-:css: css/workshop1.css
+:css-all: css/workshop1.css
 :auto-console: Yes
 
 
@@ -188,6 +188,18 @@ Preferred Direction of Workshop / Training
 * ...
 
 
+Conclusion after vote
+=====================
+
+* almost 50% to 50% for
+
+  * Web-Development
+  * Scientific / Data Focus
+
+.. class:: centered tspacer
+
+we will focus on that beginning with workshop 4
+
 ----
 
 :id: syslab
@@ -206,7 +218,7 @@ Syllabus of the planned curriculum
   (For beginners, April 2nd 2015)
 
 * Workshop 4 - **Repeating Workshop** |br|
-  (For beginners and language changer)
+  (For beginners and language changer, April 16th 2015)
 
 * Workshop 5 and ongoing: |br|
   More specialized on your preferred direction
@@ -379,11 +391,27 @@ Python is named in honour of Monty Python
 :data-x: r+0
 :data-y: r+1000
 
+The Zen of Python
+=================
 
-.. raw:: html
+Philosophy as an easter egg, open your python interpreter and type
 
-    <iframe width="775" height="600" src="http://localhost:8888/notebooks/zen.ipynb" frameborder="0" ></iframe>
+.. code:: python
 
+    import this
+
+
+.. image:: images/ipython-zen.png
+    :width: 775px
+    :class: centered
+
+
+.. comment:
+    .. raw:: html
+
+        <iframe width="775" height="600" src="http://localhost:8888/notebooks/zen.ipynb" frameborder="0" ></iframe>
+
+*My Example in IPython notebook*
 
 http://localhost:8888/notebooks/zen.ipynb
 
@@ -398,7 +426,7 @@ http://localhost:8888/notebooks/zen.ipynb
 The Zen of Python
 =================
 
-.. code:: python
+.. code::
 
     >>> import this
     The Zen of Python, by Tim Peters
@@ -413,6 +441,13 @@ The Zen of Python
     Special cases aren't special enough to break the rules.
     ...
 
+
+The two most important rules from my perspective
+------------------------------------------------
+
+* **readability counts** |br| Your code should be readable and by this understandable & maintainable
+* **Explicit is better than implicit** |br| Implicit magic might make you quicker in write code, but it makes it less
+  readable, less understandable and harder to debug.
 
 ----
 
@@ -509,9 +544,18 @@ For the Workshop there are some Tools necessary:
 Meetup.com
 ==========
 
-* All Workshops will be anounced via http://www.meetup.com/PyLadiesMunich/
+.. image:: images/meetup.png
+    :width: 775px
+    :class: centered
+
+* All Workshops will be anounced via |br| http://www.meetup.com/PyLadiesMunich/
 * Questions & Answers
-* You have to have a Meetup account and be member of http://www.meetup.com/PyLadiesMunich/
+
+|br|
+
+.. class:: centered tspacer
+
+*You have to have a Meetup account and be member of* |br| http://www.meetup.com/PyLadiesMunich/
 
 
 ----
@@ -524,7 +568,16 @@ Meetup.com
 Python Interpreter
 ==================
 
+For the Workshops we will mostly use **Python 3.4**, and only if package dependencies not be available we will fallback to Python 2.7
+
+
+Check Python availability
+-------------------------
+
 let us check if Python is already available on your notebook:
+
+Unixoide Systems (Mac, Linux, BSDs)
+...................................
 
 .. code:: bash
 
@@ -534,6 +587,12 @@ let us check if Python is already available on your notebook:
     $ python3 -V
     Python 3.4.0
 
+on Windows
+..........
+
+.. code:: bash
+
+    $ python3.exe -V
 
 ----
 
@@ -545,7 +604,7 @@ let us check if Python is already available on your notebook:
 Python Interpreter
 ==================
 
-Install Python
+Install Python *(Administrator Rights necessary)*
 
 
 Mac OS X
@@ -565,8 +624,8 @@ Linux (Debian/Ubuntu)
 
 .. code:: bash
 
-    aptitude install python3.4
-    aptitude install python2.7
+    sudo aptitude install python3.4 python3.4-pip
+    sudo aptitude install python2.7 python2.7-pip python-virtualenv
 
 
 Windows
@@ -601,13 +660,15 @@ Examples
 * Linux: GEdit (https://wiki.gnome.org/Apps/Gedit)
 * Mac: TextMate (http://macromates.com/)
 
+|br|
+
 My Prefernces
 -------------
 
 * Text-Editor: Sublime Text (http://www.sublimetext.com/)
 * IDE: PyCharm (http://www.sublimetext.com/)
 
-.. class:: centered
+.. class:: centered tspacer
 
     **Take whatever you are comfortable with**
 
@@ -623,8 +684,11 @@ virtualenv & pyvenv
 
 Virtual Environments are an isolation layer to python
 
-* Helps you to keep dependecies clean
-* seperate applications from each other
+* Helps you to keep dependencies clean
+* separate applications from each other
+* no necessary to work as root (Super User / Administrator)
+
+Use
 
 * virtualenv for Python 2
 * pyvenv part of Python 3
@@ -634,7 +698,7 @@ Setup a virtualenv
 
 .. code:: bash
 
-    pyvenv venv-name
+    pyvenv venv-name  or  pyvenv-3.4 venv-name  or  virtualenv venv-name
 
 Usage of an virtualenv
 ----------------------
@@ -643,7 +707,7 @@ Usage of an virtualenv
 
     source venv-name/bin/activate
 
-afterwards the path environments found all commands in venv-name/bin first
+afterwards the **path environment** found all commands in *venv-name/bin*
 
 ----
 
@@ -669,9 +733,14 @@ install an aditional Python package
 Search for additional packages
 ------------------------------
 
-.. raw:: html
+.. image:: images/pypi.png
+    :width: 775px
+    :class: centered
 
-    <iframe width="775" height="270" src="https://pypi.python.org/pypi" frameborder="0" ></iframe>
+.. comment:
+    .. raw:: html
+
+        <iframe width="775" height="270" src="https://pypi.python.org/pypi" frameborder="0" ></iframe>
 
 ----
 
@@ -687,9 +756,14 @@ git & github
     distributed version control system
 
 * github (https://github.com/)
-    web-based git repository hosting service
 
-    Any example code will be avaliable via https://github.com/PyLadies-Munich
+  * web-based git repository hosting service
+
+  *  Any example code will be available via |br| https://github.com/PyLadies-Munich
+
+.. image:: images/github.png
+    :width: 775px
+    :class: centered
 
 ----
 
@@ -701,7 +775,7 @@ git & github
 important git commands
 ======================
 
-* **git init** - initalize an empty local git repository
+* **git init** - initialize an empty local git repository
 * **git clone** - clone a git repository
 * **git status** - show status
 * **git diff** - show differences between revisions
@@ -755,7 +829,7 @@ Install IPython and IPython Notebook
 
 .. code:: bash
 
-    # create virual environment
+    # create a virual environment
     $ pyvenv venv-py34.ipython
     $ source venv-py34/bin/activate
     $ pip install ipython[notebook] ipdb
@@ -779,7 +853,11 @@ Python Debugger
 
 .. class:: centered tspacer
 
-    **Debugging of code is the fundamental thing to understand programms**
+    **Debugging of code is the fundamental thing to understand programs**
+
+.. image:: images/first-bug.jpg
+    :width: 500px
+    :class: centered tspacer
 
 
 ----
@@ -841,13 +919,13 @@ start python with:
 
 .. code:: bash
 
-    $ python2
-    Python 2.7.6 (default, Sep  9 2014, 15:04:36)
-    [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
+    $ python
+    Python 3.4.2 (default, Oct 16 2014, 05:21:12)
+    [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.51)] on darwin
     Type "help", "copyright", "credits" or "license" for more information.
     >>>
 
-leave python with **crtl+D**
+leave Python Interpreter with **crtl+D** or **crtl+C**
 
 ----
 
@@ -857,7 +935,7 @@ leave python with **crtl+D**
 :data-y: r+1000
 
 
-Basic "Hello World" in Pure Python Interpreter
+Basic "Hello World" in pure Python Interpreter
 ==============================================
 
 Python 3
@@ -897,7 +975,7 @@ Python 2 (old style)
 Hello World on IPython Interpreter
 ==================================
 
-start ipython with:
+start IPython with:
 
 .. code:: bash
 
@@ -1005,9 +1083,9 @@ Next Workshop
     :height: 200px
     :class: centered
 
-March 10th 2015 18:30
+Thursday March 12th 2015 18:30
 
-**Theory of data types and data structures**
+**Theory** of **data types** and **data structures**
 
 ----
 

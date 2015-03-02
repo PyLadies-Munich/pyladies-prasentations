@@ -17,17 +17,17 @@ div#console {
 
 div#views {
     float: left;
-    width: 16em;
+    width: 25em;
     margin-right: 1em;
 }
 
 div#blocker {
-    width: 17em;
-    height: 20em;
+    width: 25em;
+    height: 30em;
     position: absolute;
     top: 0;
     left: 0;
-    display: blocker;
+    display: block;
 }
 
 div#notes {
@@ -41,13 +41,13 @@ div#notes p {
 }
 
 iframe#slideView {
-    width: 16em;
-    height: 12em;
+    width: 25em;
+    height: 20em;
 }
 
 iframe#preView {
-    width: 8em;
-    height: 6em;
+    width: 12em;
+    height: 10em;
 }
 
 div#controls {
