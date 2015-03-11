@@ -1,0 +1,506 @@
+:title: Beginner's Workshop 2
+:author: Alexander Loechel
+:event: PyLadies Munich - Beginner's Workshop
+:keywords: Python, PyLadies, Workshop
+:data-transition-duration: 1500
+:css-all: css/workshop2.css
+:auto-console: Yes
+
+
+.. role:: slide-title-line1
+    :class: line1
+
+.. role:: slide-title-line2
+    :class: line2
+
+.. role:: slide-title-line3
+    :class: line3
+
+.. |br| raw:: html
+
+    <br/>
+
+
+----
+
+:id: title
+:class: slide title-slide centered level-1
+:data-x: 0
+:data-y: 0
+
+.. container:: centered
+
+    Welcome to
+
+    .. image:: images/pyladies-munich.png
+        :height: 200px
+        :class: centered
+
+    Beginner's workshop 2
+
+    **Theory** of **data types** and **data structures**
+
+.. note::
+
+    * Test Note
+
+
+
+----
+
+:id: recap
+:class: slide level-1
+:data-x: r-3000
+:data-y: 1000
+
+Recap
+=====
+
+* Introduction
+* What is Python
+* Basic Philosophy - The Zen of Python
+* Tools and Setup
+* Hello World example
+
+----
+
+:id: syslab
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Syllabus of the planned curriculum
+==================================
+
+* Workshop 1 - **Introduction, Setup and first steps** (February 26th 2015)
+* Workshop 2 - **Theory of data types and data structures** |br|
+  For beginners, March 12th 2015)
+
+* Workshop 3 - **Theory of data flow / data contol** |br|
+  (For beginners, April 2nd 2015)
+
+* Workshop 4 - **Repeating Workshop** |br|
+  (For beginners and language changer, April 16th 2015)
+
+* Workshop 5 and ongoing: |br|
+  More specialized on your preferred direction:
+  web-development and data
+
+
+.. class:: centered tspacer
+
+    *up to 8-12 Workshops*
+
+----
+
+
+:id: tool_prep
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Tools for today's workshop
+==========================
+
+* Python 3.4 and Python 2.7
+
+  * pyvenv / virtualenv for setup
+  * mostly Python 3.4 via IPython Notebook / jupyter
+
+* Browser
+
+  * Language Reference |br| (https://docs.python.org/3/reference/index.html)
+  * Standard Library |br| (https://docs.python.org/3/library/index.html)
+
+
+----
+
+:id: check-python
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Python Interpreter
+==================
+
+For the Workshops we will mostly use **Python 3.4**, and only if package dependencies not be available we will fallback to Python 2.7
+
+
+Check Python availability
+-------------------------
+
+let us check if Python is already available on your notebook:
+
+Unixoide Systems (Mac, Linux, BSDs)
+...................................
+
+.. code:: bash
+
+    $ python2 -V
+    Python 2.7.6
+
+    $ python3 -V
+    Python 3.4.0
+
+on Windows
+..........
+
+.. code:: bash
+
+    $ python3.exe -V
+
+----
+
+:id: pyvenv
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+virtualenv & pyvenv
+===================
+
+Virtual Environments are an *isolation layer* to python, never use pure system python and never install something
+to system python. Use **Virtual Environments** instead to build reduced and tailored python environments.
+
+* virtualenv add on for Python 2
+* pyvenv is virtualenv as part of Python 3
+
+Setup a virtualenv
+------------------
+
+.. code:: bash
+
+    pyvenv venv-name  or  pyvenv-3.4 venv-name  or  virtualenv venv-name
+
+Usage of an virtualenv
+----------------------
+
+.. code:: bash
+
+    source venv-name/bin/activate
+
+afterwards the **path environment** found all commands in *venv-name/bin*
+
+----
+
+:id: ipython
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+IPython & IPython Notebook |br| (Project jupyter)
+=================================================
+
+**IPython** is an powerful interactive shell for python, with:
+
+* syntax highlighting
+* tab completion
+
+
+**IPython Notebook / Jupyter** is an additional browser-based interactive Shell with many features:
+
+* support for code
+* inline plots
+* rich media
+
+Jupyter == IPython Notebook 3.0 as a spin off to support other languages. Changed File Format, I will provide a jupyter file as example.
+
+http://ipython.org/ http://jupyter.org/
+
+----
+
+:id: ipython-install
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Install IPython and IPython Notebook
+====================================
+
+Linux/Unix under /usr/local/; for Windows under C:\
+
+.. code:: bash
+
+    # create a virual environment
+    $ pyvenv venv-py34.ipython
+    $ source venv-py34/bin/activate
+    $ pip install -U ipython[notebook] ipdb
+
+----
+
+:id: intro-python
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
+
+
+Introduction to Python
+======================
+
+.. code:: python
+
+    # Python 3: Fibonacci series up to n
+    def fib(n):
+        a, b = 0, 1
+        while a < n:
+            print(a, end=' ')
+            a, b = b, a+b
+        print()
+    fib(1000)
+
+----
+
+
+:id: base
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Basic Elements of a Programming Language
+========================================
+
+* Paradigm
+
+* Data types
+
+  * Objects
+  * Primitive date types
+  * Composite types
+
+* Data Flow
+
+* Module / Module Hierarchy
+
+
+
+----
+
+:id: paradigm
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Paradigm
+========
+
+In computer science there are multiple paradigms
+
+* functional
+* imperative
+
+  * modular
+  * object oriented
+
+* logical
+* aspect oriented
+* Declarative
+
+for higher programming languages
+
+All programming language have the same power - they are *turing complete*
+
+----
+
+
+:id: prglangclasses
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Classes of Programming Languages
+================================
+
+* **machine code** - Bits & Bytes - 0/1 - punched cards
+* **assembler code** - formal representation of CPU commands
+* **higher programming languages** - Everything that is compiled into *machine code*, base is often C or Fortran
+
+----
+
+
+:id: gha
+:class: slide centered level-1
+:data-x: r+0
+:data-y: r+1000
+
+Compiler and availability of |br| higher programming languages
+==============================================================
+
+.. image:: images/gha.jpg
+    :width: 700px
+    :class: centered
+    :alt: Grace Hopper - Nobody believed that I had a running compiler and nobody would touch it. They told me computers could only do arithmetic.
+
+Rear Admiral Grace Hopper (1906 - 1992)
+---------------------------------------
+
+* 1969 inaugural Computer Science Man of the Year of Data Processing Management Association
+* since 1971 ACM Grace Murray Hopper Award for Outstanding Young Computer Professionals
+
+----
+
+
+:id: compilers
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Excuses on Compilers
+====================
+
+* bootstrapping - bootstrap paradox & Münchhausen trilemma
+* every compiler of a good programming language is written in this programming language
+* Compilers map a understandable native Language (English on a reduced set of Chomsky Type-3 grammar/EBNF) to a computer processable machine code
+
+  * higher programming languages define a syntax and a semantic
+  * Programming languages are abstractions of computable definitions or execution concepts
+
+* Computer architectures defines a set of primitive types they support
+
+  * Compilers allow to construct complex types as a combination of primitive types
+  * --> Python primitive types and the GIL (global interpreter lock) will be discussed at workshop 4
+
+.. note::
+
+  * Münchhausen trilemma - pulling himself and the horse on which he was sitting out of a mire by his own hair
+
+  * almost all base Compilers are written in C and than bootstrap itself into their own language
+
+----
+
+
+:id: eduproblem
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+The problem of |br| computer science education
+==============================================
+
+* Basics are on algorithm and data structures (see Robert Sedgewick books on Algorithms,
+  https://www.coursera.org/course/algs4partI)
+
+* Every student have to learn all basic algorithms, in practice the will never implement them nor extend them.
+  Everything is focused on algorithm.
+
+* The most important thing in effective data handling is knowledge of data structures and limits.
+
+* A optimized data structure is often up to a 100 times more effective than an optimized algorithm
+
+
+
+
+
+
+
+
+
+----
+
+:id: giants
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+We are standing on the shoulders of giants
+==========================================
+
+.. image:: images/giants_shoulders.jpg
+    :height: 500px
+    :class: centered
+
+
+
+
+----
+
+:id: ipython-notebook-hello-world
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+
+Hello World on IPython Notebook
+===============================
+
+.. code:: bash
+
+    cd venv-py34.ipython
+    source ./bin/activate
+    ipython notebook
+    2015-02-26 [NotebookApp] Using existing profile dir: '/Users/alex/.ipython/profile_default'
+    2015-02-26 [NotebookApp] Using MathJax from CDN: https://cdn.mathjax.org/mathjax/latest/MathJax.js
+    2015-02-26 [NotebookApp] Serving notebooks from local directory: /path
+    2015-02-26 [NotebookApp] 0 active kernels
+    2015-02-26 [NotebookApp] The IPython Notebook is running at: http://localhost:8888/
+    2015-02-26 [NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+
+open http://localhost:8888/
+
+
+
+
+
+
+
+----
+
+:id: unix-phil
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Unix Philosophy
+===============
+
+    Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface. [Doug McIlroy]_
+
+
+
+----
+
+:id: everythingfile
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Unix and programming philosophy
+===============================
+
+    Everything is a file
+
+
+all input/output resources behave like a file
+
+* Documents
+* Directories
+* Devices
+* Inter-Process and network communications
+
+all are exposed as *simple streams of bytes* through the filesystem name space
+
+
+
+----
+
+:id: next-meeting
+:class: slide centered level-1
+:data-x: 0
+:data-y: 8000
+
+Next Workshop
+=============
+
+.. image:: images/pyladies-munich.png
+    :height: 200px
+    :class: centered
+
+Thursday April 2nd 2015 18:30
+
+**Theory** of **data flow** / |br| **data control**
+
+----
+
+:id: overview
+:data-x: 0
+:data-y: 4000
+:data-scale: 10
