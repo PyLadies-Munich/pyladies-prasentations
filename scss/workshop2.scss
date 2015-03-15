@@ -51,6 +51,35 @@ p, li {
   font-size: 24px;
 }
 
+blockquote {
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 10px;
+  background-color: #d1d1d1;
+  border: 1px solid grey;
+  clear: both;
+
+  p {
+    font-style: italic;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  :before {
+    content: open-quote;
+  }
+  :after {
+    content: close-quote;
+  }
+}
+
+div.cite {
+  float: right;
+  font-size: 80%;
+  clear: both;
+}
+
 #giants h1 {
   font-size: 40px;
 }
@@ -83,4 +112,22 @@ p, li {
 
 #zen h2 {
   font-size: 32px;
+}
+
+#gha ul {
+  text-align: left;
+
+  li {
+    font-size: 18px;
+    line-height: 1.2em;
+  }
+}
+
+#try {
+  padding-top: 100px;
+  p {
+    font-size: 60px;
+    line-height: 1.2em;
+    margin-bottom: 1em;
+  }
 }

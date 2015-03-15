@@ -20,6 +20,13 @@
 
     <br/>
 
+.. |hr| raw:: html
+
+    <hr/>
+
+.. role:: python(code)
+   :class: highlight code python
+   :language: python
 
 ----
 
@@ -50,16 +57,31 @@
 
 :id: recap
 :class: slide level-1
-:data-x: r-3000
+:data-x: r-1500
 :data-y: 1000
 
-Recap
-=====
+Recap Workshop 1
+================
 
 * Introduction
+
+  * PyLadies
+  * Python
+  * Questions
+  * Syllabus of planned curriculum
+
 * What is Python
+
+  * About the Language
+  * History and Background
+
 * Basic Philosophy - The Zen of Python
 * Tools and Setup
+
+  * Python Interpreter
+  * Virtual Environments
+  * pip & easy_install
+
 * Hello World example
 
 ----
@@ -123,7 +145,8 @@ Tools for today's workshop
 Python Interpreter
 ==================
 
-For the Workshops we will mostly use **Python 3.4**, and only if package dependencies not be available we will fallback to Python 2.7
+For the Workshops we will mostly use **Python 3.4**, and only if package dependencies
+not be available we will fallback to Python 2.7
 
 
 Check Python availability
@@ -238,6 +261,7 @@ Introduction to Python
 ======================
 
 .. code:: python
+    :number-lines:
 
     # Python 3: Fibonacci series up to n
     def fib(n):
@@ -248,6 +272,16 @@ Introduction to Python
         print()
     fib(1000)
 
+Important parts we see
+----------------------
+
+* method definition  :python:`def fib(n)`
+* variables :python:`a, b`
+* discrete values :python:`0, 1, 1000`
+* data flow / control element for a loop: :python:`while`
+* method calls :python:`print()` & :python:`fib()`
+
+
 ----
 
 
@@ -256,22 +290,20 @@ Introduction to Python
 :data-x: r+0
 :data-y: r+1000
 
-Basic Elements of a Programming Language
-========================================
+Basic Elements of a |br| Programming Language
+=============================================
 
 * Paradigm
 
 * Data types
 
   * Objects
-  * Primitive date types
+  * Primitive data types
   * Composite types
-
-* Data Flow
 
 * Module / Module Hierarchy
 
-
+* Data Flow / control (*topic of next workshop*)
 
 ----
 
@@ -293,11 +325,13 @@ In computer science there are multiple paradigms
 
 * logical
 * aspect oriented
-* Declarative
+* declarative
 
 for higher programming languages
 
-All programming language have the same power - they are *turing complete*
+.. class:: centered tspacer
+
+    All programming language have the *same power* - they are *turing complete*
 
 ----
 
@@ -311,7 +345,20 @@ Classes of Programming Languages
 ================================
 
 * **machine code** - Bits & Bytes - 0/1 - punched cards
+
+.. image:: images/punchcard.png
+    :class: centered
+    :width: 480px
+
 * **assembler code** - formal representation of CPU commands
+
+  .. code:: cpp-objdump
+
+     0:   80 81 70 70 82 83 71  add   BYTE PTR [ecx-2088603536],0x71
+     7:   71 50                 jno   59 <gs_VLCDecodeTable+0x59>
+     9:   50                    push  eax
+     a:   50                    push  eax
+
 * **higher programming languages** - Everything that is compiled into *machine code*, base is often C or Fortran
 
 ----
@@ -344,8 +391,8 @@ Rear Admiral Grace Hopper (1906 - 1992)
 :data-x: r+0
 :data-y: r+1000
 
-Excuses on Compilers
-====================
+Excursion on Compilers
+=======================
 
 * bootstrapping - bootstrap paradox & Münchhausen trilemma
 * every compiler of a good programming language is written in this programming language
@@ -386,41 +433,124 @@ The problem of |br| computer science education
 
 * A optimized data structure is often up to a 100 times more effective than an optimized algorithm
 
+  .. pull-quote::
 
+    Smart data structures and dumb code works a lot better than the other way around
 
-
-
-
-
-
-
-----
-
-:id: giants
-:class: slide level-1
-:data-x: r+0
-:data-y: r+1000
-
-We are standing on the shoulders of giants
-==========================================
-
-.. image:: images/giants_shoulders.jpg
-    :height: 500px
-    :class: centered
-
-
+    -- Eric Raymond
 
 
 ----
 
-:id: ipython-notebook-hello-world
+:id: base_unix_c
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
+
+Basics for all |br| modern Programming Languages
+================================================
+
+* Mostly all programming languages base on **C**
+
+  * **C** was a fundamental part of Unix
+
+  * **Unix** has a philosophy that influence most scripting and programming languages
+
+  * From **C** there comes data primitives which represents the CPU architectural data types
+
+* Compilers and Interpreters make them platform independent
+
+* Programming Languages differ on focus, approachability and strictness
+
+  * typing
+  * supported paradigms
+  * execution environment
+  * elegance
+
+----
+
+:id: basic_phils
 :class: slide level-1
 :data-x: r+0
 :data-y: r+1000
 
 
-Hello World on IPython Notebook
-===============================
+Two basic Unix Philosophies
+---------------------------
+
+    Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
+
+    -- Doug McIlroy
+
+* small modules - *eggs / wheels*
+* pipelines
+* data exchange
+
+|hr|
+
+    Everything is a file
+
+
+all input/output resources behave like a file
+
+* Documents, Folders & Directories
+* Devices
+* Inter-Process and network communications
+
+all are exposed as *simple streams of bytes* through the filesystem name space
+
+----
+
+:id: oo
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Object Oriented Programming
+===========================
+
+* math & imperative programming was one of the first approaches for programming.
+  for most people it is not intuitive.
+  humans think in **objects** and **classes of objects**
+
+*
+
+    Objects are Python’s abstraction for data. All data in a Python program is represented by objects or by relations between objects.
+
+    -- https://docs.python.org/3/reference/datamodel.html
+
+* Python is **strongly typed**
+
+
+----
+
+:id: duck
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Duck Typing
+===========
+
+    When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.
+
+    -- James Whitcomb Riley
+
+    In other words, don't check whether it IS-a duck: check whether it QUACKS-like-a duck, WALKS-like-a duck, etc, etc, depending on exactly what subset of duck-like behaviour you need to play your language-games with.
+
+    -- Alex Martelli comp.lang.python
+
+
+----
+
+:id: ipython-notebook
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
+
+
+Start IPython Notebook
+=======================
 
 .. code:: bash
 
@@ -437,47 +567,17 @@ Hello World on IPython Notebook
 open http://localhost:8888/
 
 
-
-
-
-
-
 ----
 
-:id: unix-phil
-:class: slide level-1
+:id: try
+:class: slide centered level-1
 :data-x: r+0
 :data-y: r+1000
 
-Unix Philosophy
-===============
 
-    Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface. [Doug McIlroy]_
+All following explanations and examples are practical session
 
-
-
-----
-
-:id: everythingfile
-:class: slide level-1
-:data-x: r+0
-:data-y: r+1000
-
-Unix and programming philosophy
-===============================
-
-    Everything is a file
-
-
-all input/output resources behave like a file
-
-* Documents
-* Directories
-* Devices
-* Inter-Process and network communications
-
-all are exposed as *simple streams of bytes* through the filesystem name space
-
+please open your |br| **IPython Notebook** http://localhost:8888/
 
 
 ----

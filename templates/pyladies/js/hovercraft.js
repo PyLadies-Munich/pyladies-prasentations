@@ -24,6 +24,10 @@ if (window.top!=window.self) {
         if(helpdiv.className != 'show')
             helpdiv.className = 'hide';
     }, 5000);
+    elems = document.getElementsByTagName('tt');
+    for (index = 0; index < elems.length; index++) {
+        elems[index].className = 'highlight code python';
+    }
 }
 
 
