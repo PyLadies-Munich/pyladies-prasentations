@@ -1,0 +1,3 @@
+[submodule "workshop-ipynb"]
+	path = workshop-ipynb
+	url = https://github.com/PyLadies-Munich/workshop-ipynb.git
