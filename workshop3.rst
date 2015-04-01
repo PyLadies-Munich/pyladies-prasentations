@@ -57,19 +57,13 @@
 
 :id: recap-ws1
 :class: slide level-1
-:data-x: r-1500
+:data-x: r-3500
 :data-y: 1000
 
 Recap Workshop 1
 ================
 
 * Introduction
-
-  * PyLadies
-  * Python
-  * Questions
-  * Syllabus of planned curriculum
-
 * What is Python
 
   * About the Language
@@ -115,10 +109,34 @@ Syllabus of the planned curriculum
 
 ----
 
+:id: recap-ws2-1
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
+
+Recap Workshop 2
+================
+
+Theory of data types and data structures
+----------------------------------------
+
+* Paradigms |br| *all programming languages have the same power (turing complete)*
+* Data types - *Duck Typing*
+
+  .. pull-quote::
+
+    Smart data structures and dumb code works a lot better |br| than the other way around
+
+    -- Eric Raymond
+
+  * Objects - *Everything is an object in Python*
+  * *Primitive data types*
+  * Composite types
+
 
 ----
 
-:id: recap-ws2
+:id: recap-ws2-2
 :class: slide level-1
 :data-x: r+0
 :data-y: r+1000
@@ -126,9 +144,70 @@ Syllabus of the planned curriculum
 Recap Workshop 2
 ================
 
+Theory of data types and data structures
+----------------------------------------
+
+* Module / Module Hierarchy
+* Compiler and interpreter
+* Unix Philosophies
 
 
+    * Write programs that do one thing and do it well.
+    * Write programs to work together.
+    * Write programs to handle text streams, |br| because that is a universal interface.
 
+    -- Doug McIlroy
+
+----
+
+:id: recap-ws2-3
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Recap Workshop 2
+================
+
+Theory of data types and data structures
+----------------------------------------
+
+* Standard type Hierarchy and :python:`type()`-Function
+* Mutable and Immutable Types
+
+* Numbers
+
+  * Integrals (*Booleans & Integers*) - Boolean Operations
+  * Real (*floating point*)
+  * Complex
+
+
+----
+
+:id: recap-ws2-4
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Recap Workshop 2
+================
+
+Theory of data types and data structures
+----------------------------------------
+
+* Sequences, Sets and Mappings
+
+  * Tuples (:python:`(value1, value2, ...)`)
+  * Strings (*Unicode (Python2* :python:`u''` *) & Byte (Python3* :python:`b''` *)* )
+  * Lists (:python:`[]`)
+  * Set & Frozenset
+  * Dict (:python:`{ 'key': 'value', ... }`)
+
+* Callable types
+
+  * Classes
+  * functions and methods
+
+* Modules
 
 
 ----
@@ -167,295 +246,391 @@ Important parts we see
 ----
 
 
-:id: base
+:id: base-1
 :class: slide level-1
 :data-x: r+0
 :data-y: r+1000
 
-Basic Elements of a |br| Programming Language
-=============================================
+Basic Elements of |br| data flow / data control
+===============================================
 
-* Paradigm
+* Simple statements
 
-* Data types
+  * Expression statements |br|
 
-  * Objects
-  * Primitive data types
-  * Composite types
+    * :python:`True`, :python:`'text'`,
+    * *boolean / comparison operations* :python:`a == b`
+    * List comprehension :python:`[x.id for x in my_list]`
+    * *objects or procedures*
 
-* Module / Module Hierarchy
+  * Assignment statements (:python:`x = y`)
 
-* Data Flow / control (*topic of next workshop*)
+  * Augmented Assignment Statements (:python:`text += 'some text'`)
+
+  * *special simple statements with a meaning in context* |br| (:python:`pass`, :python:`return`, :python:`yield`,
+    :python:`raise`, :python:`break`, :python:`continue`, :python:`import`)
+
 
 ----
 
-:id: paradigm
+
+:id: base-2
 :class: slide level-1
 :data-x: r+0
 :data-y: r+1000
 
-Paradigm
+Basic Elements of |br| data flow / data control
+===============================================
+
+
+* Compound statements
+
+  * Control flow statements
+
+    * conditional switches (:python:`if ... elif ... else`)
+    * loops (:python:`while` & :python:`for ... in ...:`)
+      |br| *important here:* **iterators** & **generators**
+
+  * Exception handling (:python:`try: ... except: ... finally: ...`)
+  * Context Managers (:python:`with`)
+
+  * Definition statements (:python:`class`,  :python:`def`) and calls :python:`call()`
+
+
+
+----
+
+
+:id: class-def
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Definition Statements and Calls
+===============================
+
+.. pull-quote::
+
+  everything in Python is an Object
+
+.. code:: python
+    :number-lines:
+
+    import modul
+
+    class MyClass(inheritance1, inheritance2):
+
+        def __init__(self, param):
+            self._param = param
+
+        def get_param(self):
+            return self._param
+
+        def set_param(self, param):
+            pass
+
+    my_obj = MyClass('value')
+    print(my_obj.get_param())
+
+
+----
+
+:id: ifthen
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
+
+Conditional Switch
+==================
+
+Classic if then else
+
+.. code:: python
+
+    if a == 0:
+        expression
+    elif a > 0 and a < 10:
+        expression
+    elif a < 0:
+        expression
+    else:
+        expression
+
+Base
+----
+
+Boolean and Comparison Operations
+
+
+----
+
+:id: bools1
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Boolean Operations
+==================
+
+.. code:: python
+
+    >>> True and True
+    True
+    >>> True or False
+    True
+    >>> not False
+    True
+
+
+----
+
+:id: bools2
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+
+Comparison Expressions
+======================
+
+.. code:: python
+
+    >>> 1 > 0
+    True
+    >>> ' text '.strip() == 'text'
+    True
+    >>> result = None
+    >>> result is not None
+    False
+    >>> 11 in range(5)
+    False
+
+----
+
+:id: bools3
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Truth Value of expressions
+==========================
+
+.. code:: python
+
+    >>> # An empty sequence has a Truth-Value of False
+    >>> # A sequence with content has a Truth-Value of True
+    >>> my_list = []
+    >>> if not my_list:
+    >>>    print('List is empty')
+    'List is empty'
+
+    >>> # NoneType has a Truth-Value of False
+    >>> return_value = function_call()
+    >>> # if return_value is None
+    >>> if return_value:
+    >>>     return_value.start()
+
+
+----
+
+:id: loops
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
+
+Simple Loops
+============
+
+Simple **for** loop
+-------------------
+
+.. code:: python
+
+    for index in list:
+        print(index)
+
+Simple **while** loop
+---------------------
+
+.. code:: python
+
+    index = 1
+    while index <= 100:
+        print(index)
+        index += 1
+
+----
+
+:id: aloops1
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Advanced **for** Loop
+=====================
+
+.. code:: python
+
+    >>> for fruit in ['banana', 'apple', 'orange']:
+    >>>     print(fruit)
+    >>> else:
+    >>>     print('no more fruits available.')
+    banana
+    apple
+    orange
+    no more fruits available.
+
+----
+
+:id: aloops2
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Advanced **for** Loop & Context Manager
+=======================================
+
+.. code:: python
+    :number-lines:
+
+    with open(file, 'r')  as input_file:
+        line_number = 0
+        for line in input_file.readlines():
+            line_number += 1
+            if line == 'Appendix':
+                break
+            elif line.startswith('#'):
+                # Line starts with comment sign: ignore and continue
+                continue
+            print(line)
+        else:
+            print('No Appendix found')
+        print('We have read {lines}'.format(lines=line_number))
+
+
+* :python:`with` indicates a Context Manager - means that specific operations are automatically applied on exit of context
+  here the file is closed
+
+* :python:`break` quites the loop before the normal ending condition of the loop is reached
+
+* :python:`continue` indicates that all following expressions in the loop is not executed and next loop circle starts
+
+* :python:`else` is only executed if no break statement has quite the loop
+
+
+----
+
+:id: iter-gen
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
+
+Iterator
 ========
 
-In computer science there are multiple paradigms
+* you can only loop (:python:`for ... in ... :`) over a sequence-like object
+* sequences implements a __next__() method
+* everything that behaves like a sequence and implements a __next__() method is iterable
 
-* functional
-* imperative
-
-  * modular
-  * object oriented
-
-* logical
-* aspect oriented
-* declarative
-
-for higher programming languages
-
-.. class:: centered tspacer
-
-    All programming language have the *same power* - they are *turing complete*
 
 ----
 
-
-:id: prglangclasses
+:id: gen
 :class: slide level-1
 :data-x: r+0
 :data-y: r+1000
 
-Classes of Programming Languages
-================================
+Generator
+=========
 
-* **machine code** - Bits & Bytes - 0/1 - punched cards
+.. code:: python
+    :number-lines:
 
-.. image:: images/punchcard.png
-    :class: centered
-    :width: 480px
+    import time
 
-* **assembler code** - formal representation of CPU commands
+    def my_takt_generator():
+        num = 1
+        while True:
+            yield num
+            num = num % 4 + 1
 
-  .. code:: cpp-objdump
+    takt = my_takt_generator()
 
-     0:   80 81 70 70 82 83 71  add   BYTE PTR [ecx-2088603536],0x71
-     7:   71 50                 jno   59 <gs_VLCDecodeTable+0x59>
-     9:   50                    push  eax
-     a:   50                    push  eax
+    counter = 0
+    for takt_elem in takt:
+        print(takt_elem)
+        counter += 1
+        if counter >= 60:
+            break
+        time.sleep(1)
 
-* **higher programming languages** - Everything that is compiled into *machine code*, base is often C or Fortran
-
-----
-
-
-:id: gha
-:class: slide centered level-1
-:data-x: r+0
-:data-y: r+1000
-
-Compiler and availability of |br| higher programming languages
-==============================================================
-
-.. image:: images/gha.jpg
-    :width: 700px
-    :class: centered
-    :alt: Grace Hopper - Nobody believed that I had a running compiler and nobody would touch it. They told me computers could only do arithmetic.
-
-Rear Admiral Grace Hopper (1906 - 1992)
----------------------------------------
-
-* 1969 inaugural Computer Science Man of the Year of Data Processing Management Association
-* since 1971 ACM Grace Murray Hopper Award for Outstanding Young Computer Professionals
+counts 1 2 3 4 1 2 3 4 ...
 
 ----
 
-
-:id: compilers
+:id: async
 :class: slide level-1
 :data-x: r+0
 :data-y: r+1000
 
-Excursion on Compilers
-=======================
-
-* bootstrapping - bootstrap paradox & Münchhausen trilemma
-* every compiler of a good programming language is written in this programming language
-* Compilers map a understandable native Language (English on a reduced set of Chomsky Type-3 grammar/EBNF) to a computer processable machine code
-
-  * higher programming languages define a syntax and a semantic
-  * Programming languages are abstractions of computable definitions or execution concepts
-
-* Computer architectures defines a set of primitive types they support
-
-  * Compilers allow to construct complex types as a combination of primitive types
-  * --> Python primitive types and the GIL (global interpreter lock) will be discussed at workshop 4
-
-.. note::
-
-  * Münchhausen trilemma - pulling himself and the horse on which he was sitting out of a mire by his own hair
-
-  * almost all base Compilers are written in C and than bootstrap itself into their own language
-
-----
+AsyncIO Generators
+==================
 
 
-:id: eduproblem
-:class: slide level-1
-:data-x: r+0
-:data-y: r+1000
 
-The problem of |br| computer science education
-==============================================
+.. code:: python
+    :number-lines:
 
-* Basics are on algorithm and data structures (see Robert Sedgewick books on Algorithms,
-  https://www.coursera.org/course/algs4partI)
+    class DistanceSensor(Sensor):
 
-* Every student have to learn all basic algorithms, in practice the will never implement them nor extend them.
-  Everything is focused on algorithm.
+        @asyncio.coroutine
+        def get_distance(self):
+            while true:
+                distance = yield from self._messure_distance()
+                if distance < 100:
+                    print('Warning Distance too low')
 
-* The most important thing in effective data handling is knowledge of data structures and limits.
-
-* A optimized data structure is often up to a 100 times more effective than an optimized algorithm
-
-  .. pull-quote::
-
-    Smart data structures and dumb code works a lot better than the other way around
-
-    -- Eric Raymond
 
 
 ----
 
-:id: base_unix_c
+:id: exceptions
 :class: slide level-1
 :data-x: r+1000
 :data-y: 1000
 
-Basics for all |br| modern Programming Languages
-================================================
+Exceptions & Exception Handling
+===============================
 
-* Mostly all programming languages base on **C**
+.. code:: python
+    :number-lines:
 
-  * **C** was a fundamental part of Unix
+    def div(value1, value2):
+        if value2 == 0:
+            raise ZeroDivisionError
+        return value1 / value2
 
-  * **Unix** has a philosophy that influence most scripting and programming languages
-
-  * From **C** there comes data primitives which represents the CPU architectural data types
-
-* Compilers and Interpreters make them platform independent
-
-* Programming Languages differ on focus, approachability and strictness
-
-  * typing
-  * supported paradigms
-  * execution environment
-  * elegance
-
-----
-
-:id: basic_phils
-:class: slide level-1
-:data-x: r+0
-:data-y: r+1000
+    try:
+        value1, value2 = 10, 0
+        print(div(value1, value2))
+    except Error as e:
+        print('something went totally wrong')
+        print(e.message)
 
 
-Two basic Unix Philosophies
----------------------------
-
-    Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
-
-    -- Doug McIlroy
-
-* small modules - *eggs / wheels*
-* pipelines
-* data exchange
-
-|hr|
-
-    Everything is a file
 
 
-all input/output resources behave like a file
-
-* Documents, Folders & Directories
-* Devices
-* Inter-Process and network communications
-
-all are exposed as *simple streams of bytes* through the filesystem name space
-
-----
-
-:id: oo
-:class: slide level-1
-:data-x: r+0
-:data-y: r+1000
-
-Object Oriented Programming
-===========================
-
-* math & imperative programming was one of the first approaches for programming.
-  for most people it is not intuitive.
-  humans think in **objects** and **classes of objects**
-
-*
-
-    Objects are Python’s abstraction for data. All data in a Python program is represented by objects or by relations between objects.
-
-    -- https://docs.python.org/3/reference/datamodel.html
-
-* Python is **strongly typed**
 
 
-----
 
-:id: duck
-:class: slide level-1
-:data-x: r+0
-:data-y: r+1000
-
-Duck Typing
-===========
-
-    When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.
-
-    -- James Whitcomb Riley
-
-    In other words, don't check whether it IS-a duck: check whether it QUACKS-like-a duck, WALKS-like-a duck, etc, etc, depending on exactly what subset of duck-like behaviour you need to play your language-games with.
-
-    -- Alex Martelli comp.lang.python
-
-
-----
-
-:id: ipython-notebook
-:class: slide level-1
-:data-x: r+1000
-:data-y: 1000
-
-
-Start IPython Notebook
-=======================
-
-.. code:: bash
-
-    cd venv-py34.ipython
-    source ./bin/activate
-    ipython notebook
-    2015-02-26 [NotebookApp] Using existing profile dir: '/Users/alex/.ipython/profile_default'
-    2015-02-26 [NotebookApp] Using MathJax from CDN: https://cdn.mathjax.org/mathjax/latest/MathJax.js
-    2015-02-26 [NotebookApp] Serving notebooks from local directory: /path
-    2015-02-26 [NotebookApp] 0 active kernels
-    2015-02-26 [NotebookApp] The IPython Notebook is running at: http://localhost:8888/
-    2015-02-26 [NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-
-open http://localhost:8888/
 
 
 ----
 
 :id: try
-:class: slide centered level-1
-:data-x: r+0
-:data-y: r+1000
-
+:class: slide level-1
+:data-x: r+1000
+:data-y: 1000
 
 All following explanations and examples are practical session
 
@@ -467,7 +642,7 @@ please open your |br| **IPython Notebook** http://localhost:8888/
 :id: next-meeting
 :class: slide centered level-1
 :data-x: 0
-:data-y: 8000
+:data-y: 5000
 
 Next Workshop
 =============
@@ -476,13 +651,13 @@ Next Workshop
     :height: 200px
     :class: centered
 
-Thursday April 2nd 2015 18:30
+Thursday April 23th 2015 18:30 ???
 
-**Theory** of **data flow** / |br| **data control**
+**Repeating Workshop - Exercises**
 
 ----
 
 :id: overview
 :data-x: 0
-:data-y: 4000
-:data-scale: 10
+:data-y: 2500
+:data-scale: 8

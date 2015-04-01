@@ -49,6 +49,7 @@ h3 {
 
 p, li {
   font-size: 24px;
+  line-height: 2em;
 }
 
 blockquote {
@@ -61,17 +62,18 @@ blockquote {
   border: 1px solid grey;
   clear: both;
 
-  p {
+  p, li {
     font-style: italic;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
-
+/*
   :before {
     content: open-quote;
   }
   :after {
     content: close-quote;
   }
+  */
 }
 
 div.cite {
@@ -114,13 +116,8 @@ div.cite {
   font-size: 32px;
 }
 
-#gha ul {
-  text-align: left;
-
-  li {
-    font-size: 18px;
-    line-height: 1.2em;
-  }
+#aloops2 li {
+  line-height: 1.5em;
 }
 
 #try {
