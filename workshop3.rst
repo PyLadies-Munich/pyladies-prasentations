@@ -359,7 +359,11 @@ Classic if then else
 Base
 ----
 
-Boolean and Comparison Operations
+Truth evaluation of values and Operations (Boolean, Comparison, Shifting, ... Operations)
+
+Test via :python:`bool(expression)`
+...................................
+
 
 
 ----
