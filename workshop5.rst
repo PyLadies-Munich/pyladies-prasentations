@@ -286,6 +286,23 @@ Philosophy |br| Don't reinvent the wheel
 * Standing on the shoulders of giants - *we don't have to reinvent the wheel, we use it*
 
 
+
+----
+
+:id: tests
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Test Driven Development & Documentation
+=======================================
+
+* Specification
+* Testing of Specification
+* Documentation
+
+
+
 ----
 
 :id: git
@@ -430,6 +447,23 @@ Start App
     serving on http://0.0.0.0:6543
 
 open http://127.0.0.1:6543/ in Browser
+
+
+
+----
+
+:id: test_app
+:class: slide level-1
+:data-x: r+0
+:data-y: r+1000
+
+Test App
+========
+
+
+.. code:: bash
+
+    $ python setup.py test
 
 
 ----
